@@ -10,7 +10,6 @@ function Nav() {
         >movie</h1>
         <button 
           className='login'
-          onClick={()=>{window.location.href = '/'}}
         >로그인</button>
       </div>
     </header>

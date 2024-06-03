@@ -1,12 +1,12 @@
-import movieDetailData from '../../data/movieDetailData.json'
-import './DetailPage.scss'
+import movieDetailData from '../data/movieDetailData.json'
+import './MovieDetail.scss'
 
 const MovieDetail = () => {
-    console.log(movieDetailData)
     return (
         <div className='MovieDetail'>
             <img
                 src={`http://image.tmdb.org/t/p/original/${movieDetailData.backdrop_path}`}
+                alt={movieDetailData.title}
             />
             <h2>{movieDetailData.title}</h2>
             <p className='movie-average'><span>평점</span>{movieDetailData.vote_average}점</p>

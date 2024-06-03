@@ -8,8 +8,9 @@ function MovieCard({movieData}) {
         {movieData.map((movie)=>{
             return (
                 <li>
-                    <img 
+                    <img
                         src={`http://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+                        alt={movie.title}
                         onClick={()=>{window.location.href = '/detail'}}
                     />
                     <p className='movie-title'>{movie.title}</p>
