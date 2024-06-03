@@ -6,7 +6,7 @@ function Nav() {
       <div className='inner'>
         <h1
           className='logo'
-          onClick={()=>{window.location.href = '/main'}}
+          onClick={()=>{window.location.href = '/'}}
         >movie</h1>
         <button 
           className='login'
