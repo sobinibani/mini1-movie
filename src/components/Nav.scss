@@ -1,0 +1,25 @@
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    border-bottom: 1px solid rgb(228, 228, 228);
+    height: 70px;
+    opacity: 80%;
+    .inner {
+        width: 90%;
+        max-width: 1720px;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo{
+            font-size: 18px;
+            cursor: pointer;
+        }
+        button.login {
+            font-size: 16px;
+        }
+    }
+}

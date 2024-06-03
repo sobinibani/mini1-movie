@@ -1,0 +1,32 @@
+.MovieDetail {
+    width: 60%;
+    max-width: 1150px;
+    background-color: rgb(241, 241, 241);
+    padding: 30px;
+    border-radius: 10px;
+    margin: 0 auto;
+
+    img {
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    h2{
+        margin-bottom: 10px;
+    }
+    .movie-average {
+        color: gray;
+        margin-bottom: 10px;
+        span{margin-right: 5px;}
+    }
+    .movie-genres {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+        li {
+            background-color: #fff;
+            padding: 3px 5px;
+            border-radius: 5px;
+        }
+    }
+}
