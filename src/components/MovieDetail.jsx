@@ -1,5 +1,5 @@
 import movieDetailData from '../data/movieDetailData.json'
-import './MovieDetail.scss'
+import './styles/MovieDetail.scss'
 
 const MovieDetail = () => {
     return (

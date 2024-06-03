@@ -1,5 +1,5 @@
 import React from 'react'
-import './MovieCard.scss'
+import './styles/MovieCard.scss'
 
 function MovieCard({movieData}) {
   return (

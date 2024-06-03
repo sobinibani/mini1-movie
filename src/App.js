@@ -4,7 +4,7 @@ import './App.css';
 import Nav from './components/Nav';
 import LoginPage from "./pages/LoginPage";
 import MainPage from "./pages/MainPage";
-import DetailPage from "./components/MovieDetail";
+import DetailPage from "./pages/DetailPage";
 
 const Layout = () => {
   return (
