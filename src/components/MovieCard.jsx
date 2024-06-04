@@ -1,17 +1,24 @@
 import React from 'react'
 import './styles/MovieCard.scss'
+import { useNavigate } from 'react-router-dom'
 
 function MovieCard({movieData}) {
+  const navigate = useNavigate();
+
+  const handleClick = (id) => {
+    navigate(`/movie/${id}`)
+  };
+
   return (
     <div className='MovieCard'>
       <ul className='row'>
         {movieData.map((movie)=>{
             return (
-                <li>
+                <li key={movie.id}>
                     <img
                         src={`http://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
                         alt={movie.title}
-                        onClick={()=>{window.location.href = '/detail'}}
+                        onClick={()=>{handleClick(movie.id)}}
                     />
                     <p className='movie-title'>{movie.title}</p>
                     <p className='movie-average'>
