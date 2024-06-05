@@ -1,0 +1,43 @@
+.banner {
+    width:100%;
+    height: 760px;
+    margin-bottom: 100px;
+    background-position: top center;
+    background-size: cover;
+    position: relative;
+    .inner {
+        width: 90%;
+        margin: 0 auto;
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        padding-bottom: 80px;
+        .banner-title{
+            color: #fff;
+            font-size: 30px;
+            margin-bottom: 30px;
+            text-shadow: 1px -1px 7px black;
+        }
+        .banner-overview{
+            color: #fff;
+            max-width: 600px;
+            text-shadow: 1px -1px 7px black;
+            margin-bottom: 30px;
+        }
+        .view-more {
+            background-color: #fff;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+    }
+    .fade-bottom {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 7.4rem;
+        background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
+    }
+}

@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import MovieCard from '../../components/MovieCard';
+import Banner from '../../components/Banner';
 
 const MainPage = () => {
     const [movieData, setMovieData] = useState([]);
+    const [randomData, setRandomData] = useState([]);
 
     useEffect(()=>{
         const fetchPopularMovies = async () => {
@@ -15,6 +17,10 @@ const MainPage = () => {
                     }
                 });
                 setMovieData(response.data.results);
+                const randomMovie = response.data.results[
+                    Math.floor(Math.random() * response.data.results.length)]
+                setRandomData(randomMovie);
+                
             } catch(error){
                 console.log(error)
             }
@@ -24,9 +30,10 @@ const MainPage = () => {
     }, [])
 
     return (
-        <>
+        <div className='main-page'>  
+            <Banner randomMovie={randomData}/>
             <MovieCard movieData={movieData}/> 
-        </>
+        </div>
     )
 }
 

@@ -5,11 +5,22 @@
     // border: 1px solid blue;
 }
 .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+
+    @include responsive(D) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
     li {
-        width: 18%;
+        // width: 18%;
         // border: 1px solid red;
         margin-bottom: 30px;
         img {

@@ -50,6 +50,14 @@ address {
 
 /*app*/
 .App{
-  padding-top: 150px;
   padding-bottom: 100px;
+  &.page {
+    padding-top: 150px;
+  }
+}
+
+
+/**/
+.align-center {
+  text-align: center;
 }

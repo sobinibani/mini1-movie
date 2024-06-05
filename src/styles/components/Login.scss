@@ -1,7 +1,7 @@
 $light-gray : rgb(228, 228, 228);
 
-.SignUp{
-    width: 40%;
+.Login{
+    width: 80%;
     max-width: 1150px;
     position: fixed;
     top: 50%;
@@ -10,6 +10,10 @@ $light-gray : rgb(228, 228, 228);
     background-color: rgb(241, 241, 241);
     padding: 30px;
     border-radius: 10px;
+
+    @include responsive(D) {
+        width: 40%;
+    }
 
     h2{
         text-align: center;
@@ -33,7 +37,7 @@ $light-gray : rgb(228, 228, 228);
         .submit {
             width: 100%;
             background-color: gray;       
-            color: #fff;     
+            color: #fff;   
             border-radius: 50px;
             padding: 10px;
             margin-top: 50px;

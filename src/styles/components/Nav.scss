@@ -1,0 +1,93 @@
+$light-gray : rgb(228, 228, 228);
+
+.main{
+    header{
+        background-color: transparent;
+        .inner {
+            .logo{
+                color: #fff;
+            }
+            .btn-wrap {
+                .lg-hidden button {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(231, 231, 231, 0.39);
+    height: 70px;
+    &.scrolled {
+        background-color: #fff;
+        border-bottom: 1px solid $light-gray;
+        .inner {
+            .logo{
+                color: gray;
+            }
+            .btn-wrap {
+                .lg-hidden button {
+                    color: gray;
+                }
+            }
+        }
+    }
+    .inner {
+        width: 90%;
+        max-width: 1720px;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .left-wrap {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .logo{
+            font-size: 18px;
+            cursor: pointer;
+            color: gray;
+        }
+        .search {
+            display: flex;
+            align-items: center;
+            background-color: rgb(238, 238, 238);
+            border-radius: 50px;
+            padding: 10px 20px;
+            input {
+            }
+            .icon {
+                font-size: 20px;
+            }
+        }
+        .btn-wrap {
+            div{
+                display: flex;
+                gap: 10px;
+            }
+            .lg-only button {
+                font-size: 14px;
+                background-color: #fff;
+                border: 1px solid $light-gray;
+                padding: 5px 10px;
+                border-radius: 50px;
+                transition: 0.5;
+                &:hover {
+                    background-color: $light-gray;
+                }
+            }
+            .lg-hidden button {
+                color: gray;
+                font-size: 25px;
+            }
+        }
+    }
+}

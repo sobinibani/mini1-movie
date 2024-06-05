@@ -1,5 +1,4 @@
 import React from 'react'
-import './styles/MovieCard.scss'
 import { useNavigate } from 'react-router-dom'
 
 function MovieCard({movieData}) {

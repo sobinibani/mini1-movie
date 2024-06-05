@@ -1,0 +1,388 @@
+/*reset*/
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+* {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+/* html {} */
+/* body {} */
+h1 {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  background-color: transparent;
+  border: 0;
+}
+button:focus, input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+button {
+  padding: 0;
+}
+
+ul, ol {
+  padding-left: 0;
+  list-style: none;
+}
+
+address {
+  font-style: normal;
+}
+
+/*app*/
+.App {
+  padding-bottom: 100px;
+}
+.App.page {
+  padding-top: 150px;
+}
+
+/**/
+.align-center {
+  text-align: center;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media screen and (min-width: 768px) {
+  .sm-only {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .md-only {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .md-only {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .lg-only {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .sm-hidden {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .md-hidden {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .lg-hidden {
+    display: none !important;
+  }
+}
+
+.banner {
+  width: 100%;
+  height: 760px;
+  margin-bottom: 100px;
+  background-position: top center;
+  background-size: cover;
+  position: relative;
+}
+.banner .inner {
+  width: 90%;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 80px;
+}
+.banner .inner .banner-title {
+  color: #fff;
+  font-size: 30px;
+  margin-bottom: 30px;
+  text-shadow: 1px -1px 7px black;
+}
+.banner .inner .banner-overview {
+  color: #fff;
+  max-width: 600px;
+  text-shadow: 1px -1px 7px black;
+  margin-bottom: 30px;
+}
+.banner .inner .view-more {
+  background-color: #fff;
+  padding: 10px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+}
+.banner .fade-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 7.4rem;
+  background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
+}
+
+.Login {
+  width: 40%;
+  max-width: 1150px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(241, 241, 241);
+  padding: 30px;
+  border-radius: 10px;
+}
+.Login h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.Login form div {
+  margin-bottom: 10px;
+}
+.Login form div label {
+  display: block;
+  margin-bottom: 5px;
+}
+.Login form div input {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7529411765);
+  border-radius: 5px;
+  padding: 10px 10px;
+  font-size: 16px;
+}
+.Login form .submit {
+  width: 100%;
+  background-color: gray;
+  color: #fff;
+  border-radius: 50px;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+.MovieCard {
+  width: 90%;
+  max-width: 1720px;
+  margin: 0 auto;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+}
+@media screen and (min-width: 1200px) {
+  .row {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+.row li {
+  margin-bottom: 30px;
+}
+.row li img {
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.row li .movie-title {
+  cursor: pointer;
+}
+.row li .movie-average {
+  color: gray;
+  font-size: 14px;
+}
+.row li .movie-average span {
+  margin-right: 5px;
+}
+
+.MovieDetail {
+  width: 60%;
+  max-width: 1150px;
+  background-color: rgb(241, 241, 241);
+  padding: 30px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+.MovieDetail img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.MovieDetail h2 {
+  margin-bottom: 10px;
+}
+.MovieDetail .movie-average {
+  color: gray;
+  margin-bottom: 10px;
+}
+.MovieDetail .movie-average span {
+  margin-right: 5px;
+}
+.MovieDetail .movie-genres {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.MovieDetail .movie-genres li {
+  background-color: #fff;
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+
+.Loading {
+  text-align: center;
+  color: lightgray;
+}
+
+.main header {
+  background-color: transparent;
+}
+.main header .inner .logo {
+  color: #fff;
+}
+.main header .inner .btn-wrap .lg-hidden button {
+  color: #fff;
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(231, 231, 231, 0.39);
+  height: 70px;
+}
+header.scrolled {
+  background-color: #fff;
+  border-bottom: 1px solid rgb(228, 228, 228);
+}
+header.scrolled .inner .logo {
+  color: gray;
+}
+header.scrolled .inner .btn-wrap .lg-hidden button {
+  color: gray;
+}
+header .inner {
+  width: 90%;
+  max-width: 1720px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .inner .left-wrap {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+header .inner .logo {
+  font-size: 18px;
+  cursor: pointer;
+  color: gray;
+}
+header .inner .search {
+  display: flex;
+  align-items: center;
+  background-color: rgb(238, 238, 238);
+  border-radius: 50px;
+  padding: 10px 20px;
+}
+header .inner .search .icon {
+  font-size: 20px;
+}
+header .inner .btn-wrap div {
+  display: flex;
+  gap: 10px;
+}
+header .inner .btn-wrap .lg-only button {
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid rgb(228, 228, 228);
+  padding: 5px 10px;
+  border-radius: 50px;
+  transition: 0.5;
+}
+header .inner .btn-wrap .lg-only button:hover {
+  background-color: rgb(228, 228, 228);
+}
+header .inner .btn-wrap .lg-hidden button {
+  color: gray;
+  font-size: 25px;
+}
+
+.SignUp {
+  width: 40%;
+  max-width: 1150px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(241, 241, 241);
+  padding: 30px;
+  border-radius: 10px;
+}
+.SignUp h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.SignUp form div {
+  margin-bottom: 10px;
+}
+.SignUp form div label {
+  display: block;
+  margin-bottom: 5px;
+}
+.SignUp form div input {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7529411765);
+  border-radius: 5px;
+  padding: 10px 10px;
+  font-size: 16px;
+}
+.SignUp form .submit {
+  width: 100%;
+  background-color: gray;
+  color: #fff;
+  border-radius: 50px;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+/*# sourceMappingURL=style.css.map */

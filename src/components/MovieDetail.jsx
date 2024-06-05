@@ -1,4 +1,3 @@
-import './styles/MovieDetail.scss'
 
 const MovieDetail = ({detailMovie}) => {
     if (!detailMovie) {
