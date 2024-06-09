@@ -1,0 +1,33 @@
+.content-center {
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mb50 {margin-bottom: 50px;}
+.mb30 {margin-bottom: 30px;}
+.mb10 {margin-bottom: 10px;}
+
+//
+.btn-type1{
+    border: 1px solid $light-gray;
+    padding: 5px 30px;
+    border-radius: 5px;
+}
+
+//
+.flex-wrap {
+    display: flex;
+}
+.gap10 {
+    gap: 10px;
+}
+
+//
+.warning {
+    color: #d10000;
+    font-size: 15px;
+    margin-top: 5px;
+}

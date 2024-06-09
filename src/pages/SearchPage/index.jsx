@@ -55,7 +55,7 @@ const SearchPage = () => {
         )
     } else {
         return(
-            <section className="no-results align-center">
+            <section className="content-center">
                 <p>원하시는 검색 결과가 없습니다.</p>
             </section>
         )

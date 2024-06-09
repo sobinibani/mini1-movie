@@ -1,5 +1,5 @@
 import { Outlet, Route, Routes, useLocation } from "react-router-dom";
-
+import { useState } from "react";
 // import './style.css';
 import './styles/main.scss'
 import Nav from './components/Nav';
@@ -7,9 +7,12 @@ import MainPage from "./pages/MainPage";
 import DetailPage from "./pages/DetailPage";
 import SearchPage from "./pages/SearchPage"
 import SignUpPage from "./pages/SignUpPage";
+import SignCompletePage from "./pages/SignComplete";
 import LoginPage from "./pages/LoginPage";
 
+
 const Layout = () => {
+
   return (
     <>
       <Nav/>
@@ -30,6 +33,7 @@ function App() {
           <Route path="/movie/:id" element={<DetailPage/>}/>
           <Route path='search' element={<SearchPage/>}/>
           <Route path="/signup" element={<SignUpPage/>}/>
+          <Route path="/signComplete" element={<SignCompletePage/>}/>
           <Route path="/login" element={<LoginPage/>}/>
         </Route>
       </Routes>

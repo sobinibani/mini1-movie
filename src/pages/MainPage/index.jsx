@@ -17,8 +17,12 @@ const MainPage = () => {
                     }
                 });
                 setMovieData(response.data.results);
-                const randomMovie = response.data.results[
-                    Math.floor(Math.random() * response.data.results.length)]
+                
+                const filteredArray = response.data.results.filter((movie)=>{
+                    return movie.overview !== ""
+                });
+                const randomMovie = filteredArray[
+                Math.floor(Math.random() * response.data.results.length)]
                 setRandomData(randomMovie);
                 
             } catch(error){

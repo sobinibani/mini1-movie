@@ -25,10 +25,9 @@ const DetailPage = () => {
 
         fetchDetailMovie();
     }, [id])
+    
     return (
-        <>
-          <MovieDetail detailMovie={detailMovie}/>
-        </>
+        <MovieDetail detailMovie={detailMovie}/>
     )
 }
 

@@ -11,6 +11,9 @@ $light-gray : rgb(228, 228, 228);
                 .lg-hidden button {
                     color: #fff;
                 }
+                .user-name{
+                    color: #fff;
+                }
             }
         }
     }
@@ -34,6 +37,9 @@ header {
             .btn-wrap {
                 .lg-hidden button {
                     color: gray;
+                }
+                .user-name{
+                    color: rgb(70, 70, 70);
                 }
             }
         }
@@ -69,11 +75,11 @@ header {
             }
         }
         .btn-wrap {
-            div{
-                display: flex;
-                gap: 10px;
-            }
-            .lg-only button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            &.lg-only button {
                 font-size: 14px;
                 background-color: #fff;
                 border: 1px solid $light-gray;
@@ -84,7 +90,8 @@ header {
                     background-color: $light-gray;
                 }
             }
-            .lg-hidden button {
+            
+            &.lg-hidden button {
                 color: gray;
                 font-size: 25px;
             }
