@@ -48,8 +48,7 @@ const SignUp = () => {
       navigate(`/`);
     })
     .catch((error)=>{
-      console.log('error',error)
-      setLoginError('이메일 및 비밀번호가 올바르지 않습니다.');
+      alert('이메일 및 비밀번호가 올바르지 않습니다.');
     })
   }
 

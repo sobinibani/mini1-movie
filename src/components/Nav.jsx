@@ -5,6 +5,8 @@ import { MdMenu } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import {getAuth,signOut, onAuthStateChanged} from 'firebase/auth';
 
+import SearchModal from './Modal/SearchModal';
+
 function Nav() {
   const navigate = useNavigate();
 
@@ -58,7 +60,6 @@ function Nav() {
 
 
   // 로그아웃
-
   const handleLogout = () => {
     signOut(auth)
     .then(()=>{
@@ -70,6 +71,9 @@ function Nav() {
       console.log('error',error)
     })
   }
+
+  //반응형 모달
+  const [searchModal,setSearchModal] = useState(false);
 
   return (
     <header className={` ${isScrolled ? 'scrolled' : ''}`}>
@@ -126,10 +130,14 @@ function Nav() {
         }
 
         <div className='btn-wrap lg-hidden'>
-          <button className='toggle-menu lg-hidden'><IoSearch/></button>
+          <button className='toggle-menu lg-hidden'>
+            <IoSearch onClick={()=>{setSearchModal(true)}}/>
+          </button>
           <button className='toggle-menu lg-hidden'><MdMenu /></button>
         </div>
       </div>
+      
+      {searchModal ? <SearchModal setSearchModal={setSearchModal}/> : null}
     </header>
   )
 }

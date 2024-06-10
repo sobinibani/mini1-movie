@@ -25,7 +25,7 @@ header {
     z-index: 999999;
     top: 0;
     background-color: #fff;
-    border-bottom: 1px solid rgba(231, 231, 231, 0.39);
+    border-bottom: 1px solid rgba(231, 231, 231, 0.25);
     height: 70px;
     &.scrolled {
         background-color: #fff;
@@ -44,7 +44,7 @@ header {
             }
         }
     }
-    .inner {
+    &>.inner {
         width: 90%;
         max-width: 1720px;
         height: 100%;

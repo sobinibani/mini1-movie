@@ -1,0 +1,41 @@
+.SearchModal {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .inner {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .searchWrapper {
+        border-bottom: 1px solid $light-gray;
+        padding: 10px 0;
+        .inner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .searchInput {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                background-color: $light-gray;
+                padding: 10px;
+                border-radius: 5px;
+                input {
+                    flex-grow: 1;
+                }
+                .searchIcon {
+
+                }
+            }
+        }
+    }
+
+    .searchResults {
+        height: calc(100% - 80px);
+        overflow-y: scroll;
+        .MovieCard {}
+    }
+}

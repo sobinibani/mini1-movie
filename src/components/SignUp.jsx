@@ -15,20 +15,26 @@ const SignUp = () => {
     const [password, setPassword] = useState('');
     const [cfPassword, setCfPassword] = useState('');
 
-    
-    const [idError, setIdError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
 
     const handleSignUp = async(e) => {
         e.preventDefault();
+
+        if (!validateEmail(email)) {
+            setEmailError('유효하지 않은 이메일 형식입니다.');
+            return;
+        }
+
         if (password !== cfPassword) {
-            alert('비밀번호가 일치하지 않습니다.');
+            setPasswordError('비밀번호가 일치하지 않습니다.');
             return;
         }
         if (password.length < 6){
             setPasswordError('비밀번호는 6글자 이상이여야 합니다.');
             return;
         }
+
         try{
             const userCredential  = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
@@ -40,10 +46,15 @@ const SignUp = () => {
         } catch(error){
             const {code, message} = error;
             if (code === 'auth/email-already-in-use') {
-                setIdError('이미 사용중인 이메일입니다.');
+                setEmailError('이미 사용중인 이메일입니다.');
             } 
         }
     }
+
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
 
   return (
     <div className='SignUp'>
@@ -68,10 +79,10 @@ const SignUp = () => {
                 value={email}
                 onChange={(e)=>{
                     setEmail(e.target.value);
-                    setIdError(false);
+                    setEmailError(false);
                 }}
             />
-            <p className='warning'>{idError ? idError : null}</p>
+            <p className='warning'>{emailError ? emailError : null}</p>
         </div>
         <div>
             <label htmlFor='password'>비밀번호</label>
@@ -87,7 +98,6 @@ const SignUp = () => {
                     }
                 }
             />
-            <p className='warning'>{passwordError ? passwordError : null}</p>
         </div>
         <div>
             <label htmlFor='cf-password'>비밀번호 확인</label>
@@ -98,6 +108,7 @@ const SignUp = () => {
                 value={cfPassword}
                 onChange={(e)=>{setCfPassword(e.target.value)}}
             />
+            <p className='warning'>{passwordError ? passwordError : null}</p>
         </div>
         <button
             type='submit'
