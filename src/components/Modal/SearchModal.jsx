@@ -52,8 +52,7 @@ useEffect(()=>{
                 </div>
             </div>
 
-            <div className='inner mt30 searchResults'>
-                {/* <h3>지금사람들이 많이 보는 작품</h3> */}
+            <div className='mt30 searchResults'>
                 <MovieCard movieData={searchResults}/>
             </div>
     </div>

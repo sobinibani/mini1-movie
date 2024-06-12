@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
 import { IoSearch } from "react-icons/io5";
 import { MdMenu } from "react-icons/md";
@@ -6,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import {getAuth,signOut, onAuthStateChanged} from 'firebase/auth';
 
 import SearchModal from './Modal/SearchModal';
+import ToggleModal from './Modal/ToggleModal';
 
 function Nav() {
   const navigate = useNavigate();
@@ -72,8 +74,19 @@ function Nav() {
     })
   }
 
-  //반응형 모달
+  //반응형 - 검색 모달
   const [searchModal,setSearchModal] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const moviePage = location.pathname.startsWith('/movie/');
+    if (moviePage) {
+      setSearchModal(false);
+    }
+  }, [location.pathname]);
+
+  //반응형 - 토글 모달
+  const [toggleModal, setToggleModal] = useState(false);
 
   return (
     <header className={` ${isScrolled ? 'scrolled' : ''}`}>
@@ -138,6 +151,7 @@ function Nav() {
       </div>
       
       {searchModal ? <SearchModal setSearchModal={setSearchModal}/> : null}
+      {toggleModal ? <ToggleModal/>:null}
     </header>
   )
 }

@@ -2,26 +2,21 @@
     width: 90%;
     max-width: 1720px;
     margin: 0 auto;
-    // border: 1px solid blue;
 }
 .row {
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: space-between;
-
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    list-style: none;
-    padding: 0;
 
+    @include responsive(T) {
+        grid-template-columns: repeat(3, 1fr);
+        li{margin-bottom: 0px;}
+    }
     @include responsive(D) {
         grid-template-columns: repeat(5, 1fr);
     }
 
     li {
-        // width: 18%;
-        // border: 1px solid red;
         margin-bottom: 30px;
         img {
             width: 100%;

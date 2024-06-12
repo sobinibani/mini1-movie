@@ -8,7 +8,7 @@ $light-gray : rgb(228, 228, 228);
                 color: #fff;
             }
             .btn-wrap {
-                .lg-hidden button {
+                &.lg-hidden button {
                     color: #fff;
                 }
                 .user-name{
@@ -35,7 +35,7 @@ header {
                 color: gray;
             }
             .btn-wrap {
-                .lg-hidden button {
+                &.lg-hidden button {
                     color: gray;
                 }
                 .user-name{
