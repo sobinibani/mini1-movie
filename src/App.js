@@ -1,6 +1,6 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-// import './style.css';
-import './styles/main.scss'
+import './style.css';
+// import './styles/main.scss'
 import Nav from './components/Nav';
 import MainPage from "./pages/MainPage";
 import DetailPage from "./pages/DetailPage";
