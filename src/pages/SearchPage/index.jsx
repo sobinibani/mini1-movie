@@ -13,13 +13,12 @@ const SearchPage = () => {
     }
 
     let query = useQuery();
-    const searchTerm = query.get('q');
     const debouncedSearchTerm = useDebounce(query.get('q'), 500);
 
     // 
-    const fetchSearchMovie = async(searchTerm) => {
+    const fetchSearchMovie = async(debouncedSearchTerm) => {
         const apiKey = process.env.REACT_APP_TMDB_API_KEY; 
-        const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchTerm}`;
+        const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${debouncedSearchTerm}`;
       
         try{
             const response = await axios.get(url, {
