@@ -9,8 +9,10 @@ import SignUpPage from "./pages/SignUpPage";
 import SignCompletePage from "./pages/SignComplete";
 import LoginPage from "./pages/LoginPage";
 
-function App() {
+import useFetchMovies from "./hooks/useFetchMovies";
 
+function App() {
+  useFetchMovies();
   const location = useLocation();
   const main = location.pathname === '/';
 

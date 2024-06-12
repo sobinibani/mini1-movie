@@ -1,15 +1,26 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
 import { IoSearch } from "react-icons/io5";
 import { MdMenu } from "react-icons/md";
-import { useNavigate } from 'react-router-dom';
 import {getAuth,signOut, onAuthStateChanged} from 'firebase/auth';
+import { useSelector, useDispatch } from 'react-redux';
+import { LoggedIn } from '../redux/actions';
+import { useAuth } from '../hooks/useAuth';
 
 import SearchModal from './Modal/SearchModal';
 import ToggleModal from './Modal/ToggleModal';
 
 function Nav() {
+
+  // useAuth();
+  console.log(useAuth())
+  const dispatch = useDispatch();
+  const handleTestClick = () => {
+    dispatch(LoggedIn());
+  }
+  
+
   const navigate = useNavigate();
 
   //로그인 했는지?
@@ -107,6 +118,7 @@ function Nav() {
               <CiSearch className='icon'/>
             </button>
           </div>
+          <div onClick={()=>{handleTestClick()}}>test</div>
         </div>
         {loading ? null :         
           <div className='btn-wrap lg-only'>

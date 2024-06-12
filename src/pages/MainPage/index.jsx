@@ -1,37 +1,13 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useSelector } from 'react-redux';
 import MovieCard from '../../components/MovieCard';
 import Banner from '../../components/Banner';
 
 const MainPage = () => {
-    const [movieData, setMovieData] = useState([]);
-    const [randomData, setRandomData] = useState([]);
-
-    useEffect(()=>{
-        const fetchPopularMovies = async () => {
-            try{
-                const response = await axios.get('https://api.themoviedb.org/3/movie/popular',{
-                    params: {
-                        api_key: process.env.REACT_APP_TMDB_API_KEY,
-                        language: "ko-KR"
-                    }
-                });
-                setMovieData(response.data.results);
-                
-                const filteredArray = response.data.results.filter((movie)=>{
-                    return movie.overview !== ""
-                });
-                const randomMovie = filteredArray[
-                Math.floor(Math.random() * response.data.results.length)]
-                setRandomData(randomMovie);
-                
-            } catch(error){
-                console.log(error)
-            }
-        };
-
-        fetchPopularMovies();
-    }, [])
+    // const test = useSelector(state => state.movies);
+    // console.log(test);
+    const movieData = useSelector(state => state.movies.popularMovies);
+    const randomData = useSelector(state => state.movies.randomMovies);
 
     return (
         <div className='main-page'>  
