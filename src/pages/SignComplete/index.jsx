@@ -6,7 +6,7 @@ const SignComplete = () => {
   const navigate = useNavigate();
   return (
     <div className='content-center'>
-      <img src={image} className='mb30' />
+      <img src={image} className='mb30' alt="" aria-hidden/>
       <p className='mb30'>회원가입이 완료 되었습니다!</p>
       <div className='flex-wrap gap10'>
         <button 

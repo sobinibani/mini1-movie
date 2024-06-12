@@ -1,4 +1,4 @@
-import { Outlet, Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 // import './style.css';
 import './styles/main.scss'
 import Nav from './components/Nav';

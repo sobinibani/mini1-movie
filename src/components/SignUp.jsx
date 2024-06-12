@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import firebase from 'firebase/app';
 import app from '../firebase'
 import { createUserWithEmailAndPassword, getAuth, updateProfile, signOut } from 'firebase/auth';
 
@@ -44,7 +43,7 @@ const SignUp = () => {
             navigate(`/signComplete`)
 
         } catch(error){
-            const {code, message} = error;
+            const {code} = error;
             if (code === 'auth/email-already-in-use') {
                 setEmailError('이미 사용중인 이메일입니다.');
             } 

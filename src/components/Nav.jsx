@@ -151,7 +151,7 @@ function Nav() {
       </div>
       
       {searchModal ? <SearchModal setSearchModal={setSearchModal}/> : null}
-      {toggleModal ? <ToggleModal/>:null}
+      {toggleModal ? <ToggleModal setToggleModal={setToggleModal}/>:null}
     </header>
   )
 }

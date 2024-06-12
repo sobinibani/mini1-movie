@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react';
-import app from '../firebase'
 import { useNavigate } from 'react-router-dom';
 import {
   getAuth, 
@@ -10,8 +9,6 @@ import {
   GithubAuthProvider,
   OAuthProvider,
   signInWithEmailAndPassword,
-
-  signOut
 } from 'firebase/auth';
 
 const SignUp = () => {
