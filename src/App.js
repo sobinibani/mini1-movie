@@ -1,6 +1,6 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import './style.css';
-// import './styles/main.scss'
+// import './style.css';
+import './styles/main.scss'
 import Nav from './components/Nav';
 import MainPage from "./pages/MainPage";
 import DetailPage from "./pages/DetailPage";
@@ -9,7 +9,7 @@ import SignUpPage from "./pages/SignUpPage";
 import SignCompletePage from "./pages/SignComplete";
 import LoginPage from "./pages/LoginPage";
 
-import useFetchMovies from "./hooks/useFetchMovies";
+import {useFetchMovies} from "./hooks/useFetchMovies";
 
 function App() {
   useFetchMovies();
