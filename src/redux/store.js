@@ -1,6 +1,12 @@
-import { createStore } from 'redux';
-import handleLogin from './reducer';
+import { createStore, combineReducers } from 'redux';
+import movieReducer from './movieData/reducer';
+import loginReducer from './handleLogin/reducer';
 
-const store = createStore(handleLogin);
+const rootReducer = combineReducers({
+    movies: movieReducer,
+    login: loginReducer
+})
 
-export default store;
+const movieStore = createStore(rootReducer);
+
+export default movieStore;

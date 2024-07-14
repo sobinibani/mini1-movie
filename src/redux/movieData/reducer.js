@@ -1,9 +1,10 @@
-import { POPULAR_MOVIES, RANDOM_MOVIES, SEARCH_MOVIES } from "./action";
+import { POPULAR_MOVIES, RANDOM_MOVIES, SEARCH_MOVIES, DETAIL_MOVIES } from "./action";
 
 const initialState = {
     popularMovies: [],
     randomMovies: [],
-    searchMovies: []
+    searchMovies: [],
+    detailMovies: []
 };
 
 const movieReducer = (state= initialState, action) => {
@@ -22,6 +23,11 @@ const movieReducer = (state= initialState, action) => {
             return {
                 ...state,
                 searchMovies: action.payload
+            }
+        case DETAIL_MOVIES:
+            return {
+                ...state,
+                detailMovies: action.payload
             }
         default:
             return state;

@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import App from './App';
-// import store from './redux/store'
-import movieStore from './redux/movieData/store'
+import store from './redux/store'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Provider store={movieStore}>
+    <Provider store={store}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
