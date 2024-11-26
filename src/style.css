@@ -173,6 +173,7 @@ address {
 }
 .banner .inner {
   width: 90%;
+  max-width: 1720px;
   margin: 0 auto;
   position: absolute;
   z-index: 1;
