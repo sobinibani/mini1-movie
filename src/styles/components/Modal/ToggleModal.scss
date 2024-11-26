@@ -1,58 +1,46 @@
 .ToggleModal {
-    background-color: rgb(241, 241, 241);
-    width:50%;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 999;
-    transition: transform 0.3s ease-in-out;
-    &.off {
-        transform: translateX(100%);
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 0;
+  .closeBtn {
+    font-size: 20px;
+  }
+  .toggleRow {
+    .inner {
+      display: flex;
+      width: 90%;
+      margin: 0 auto;
     }
-    .content {
-        background-color: #fff;
-        padding: 30px 0;
-        .inner{
-            width: 90%;
-            margin: 0 auto;
-            position: relative;
-            // border: 1px solid red;
-            .logo{
-                font-size: 18px;
-                color: gray;
-            }
-            .btn-close {
-                position: absolute;
-                right: 0;
-                top: 0;
-                font-size: 30px;
-            }
-            .btnWrap{
-                margin-top: 50px;
-                button {
-                    width: 100%;
-                    background-color: #fff;
-                    padding: 10px;
-                    margin-bottom: 10px;
-                    border-radius: 10px;
-                    border: 1px solid #dadada;
-                }
-            }
-        }
+    &.row1 {
+      margin-bottom: 30px;
+      border-bottom: 1px solid $light-gray;
+      padding-bottom: 20px;
+      .inner {
+        display: flex;
+        justify-content: flex-end;
+      }
     }
-}
-
-.toggleBg {
-    display: none;
-    background-color: #000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 50%;
-    &.on {
-        display: block;
+    &.row2 {
+      .inner {
+        justify-content: space-between;
+      }
     }
+  }
+  .user {
+    font-size: 16px;
+    span {
+      font-weight: 700;
+      font-size: 18px;
+      margin-right: 5px;
+    }
+  }
+  .logoutBtn {
+    background-color: $light-gray;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: 15px;
+  }
 }

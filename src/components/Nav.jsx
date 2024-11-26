@@ -8,8 +8,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { useAuth, handleLogout } from '../hooks/useAuth';
 
-import SearchModal from './Modal/SearchModal';
-import ToggleModal from './Modal/ToggleModal';
+import SearchModal from "./Modal/SearchModal";
+import ToggleModal from "./Modal/ToggleModal";
 
 function Nav() {  
 
@@ -38,34 +38,34 @@ function Nav() {
 
   // }, [auth, navigate]);
 
-  
+
   // 검색 input 이벤트
-  const [searchValue, setSearchValue] = useState('');
-  const handleChange = (e)=> {
+  const [searchValue, setSearchValue] = useState("");
+  const handleChange = (e) => {
     setSearchValue(e.target.value);
-    navigate(`/search?q=${e.target.value}`)
-  }
-  
+    navigate(`/search?q=${e.target.value}`);
+  };
+
   //스크롤
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      if (scrollTop > 50) { // 스크롤 위치가 50px 이상일 때 배경색 변경.
+      if (scrollTop > 50) {
+        // 스크롤 위치가 50px 이상일 때 배경색 변경.
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
 
   // 로그아웃
   // const handleLogout = () => {
@@ -80,12 +80,13 @@ function Nav() {
   //   })
   // }
 
+
   //반응형 - 검색 모달
-  const [searchModal,setSearchModal] = useState(false);
+  const [searchModal, setSearchModal] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    const moviePage = location.pathname.startsWith('/movie/');
+    const moviePage = location.pathname.startsWith("/movie/");
     if (moviePage) {
       setSearchModal(false);
     }
@@ -95,22 +96,26 @@ function Nav() {
   const [toggleModalShow, setToggleModalShow] = useState(false);
 
   return (
-    <header className={` ${isScrolled ? 'scrolled' : ''}`}>
-      <div className='inner'>
-        <div className='left-wrap'>
+    <header className={` ${isScrolled ? "scrolled" : ""}`}>
+      <div className="inner">
+        <div className="left-wrap">
           <h1
-            className='logo'
-            onClick={()=>{window.location.href = '/'}}
-          >movie</h1>
-          <div className='search lg-only'>
+            className="logo"
+            onClick={() => {
+              window.location.href = "/";
+            }}
+          >
+            movie
+          </h1>
+          <div className="search lg-only">
             <input
-              type='text'
-              placeholder='어떤 영화를 찾으세요?'
+              type="text"
+              placeholder="어떤 영화를 찾으세요?"
               value={searchValue}
               onChange={handleChange}
             />
             <button>
-              <CiSearch className='icon'/>
+              <CiSearch className="icon" />
             </button>
           </div>
         </div>
@@ -118,10 +123,9 @@ function Nav() {
           <div className='btn-wrap lg-only'>
             {login ? 
               <>
-              {userData ? 
-                (
+                {userData ? (
                   <>
-                    <p className='user-name'>
+                    <p className="user-name">
                       <span>{userData.displayName}</span> 님
                     </p>
                     <button 
@@ -129,22 +133,29 @@ function Nav() {
                     onClick={()=>{handleLogout(dispatch)}}
                     >로그아웃</button>
                   </>
-                ) 
-              : null}
+                ) : null}
               </>
-            : 
+            ) : (
               <>
-                <button 
-                  className='signup'
-                  onClick={()=>{window.location.href = '/signup'}}
-                >회원가입</button>
-                <button 
-                  className='login'
-                  onClick={()=>{window.location.href = '/login'}}
+                <button
+                  className="signup"
+                  onClick={() => {
+                    window.location.href = "/signup";
+                  }}
+                >
+                  회원가입
+                </button>
+                <button
+                  className="login"
+                  onClick={() => {
+                    window.location.href = "/login";
+                  }}
                   // onClick={handleAuth}
-                >로그인</button>
+                >
+                  로그인
+                </button>
               </>
-            }
+            )}
           </div>
         
 
@@ -161,7 +172,7 @@ function Nav() {
       {searchModal ? <SearchModal setSearchModal={setSearchModal}/> : null}
       <ToggleModal toggleModalShow={toggleModalShow} setToggleModalShow={setToggleModalShow}/>
     </header>
-  )
+  );
 }
 
-export default Nav
+export default Nav;

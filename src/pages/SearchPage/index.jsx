@@ -1,4 +1,5 @@
 import { useLocation} from "react-router-dom" 
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import { useDebounce } from "../../hooks/useDebounce";
@@ -12,6 +13,7 @@ const SearchPage = () => {
     const useQuery = () => {
         return new URLSearchParams(useLocation().search);
     }
+  };
 
     let query = useQuery();
     const debouncedSearchTerm = useDebounce(query.get('q'), 500);
@@ -36,3 +38,4 @@ const SearchPage = () => {
 }
 
 export default SearchPage
+

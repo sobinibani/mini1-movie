@@ -207,21 +207,24 @@ address {
   background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
 }
 
-.Login {
+.loginWrap {
   width: 80%;
   max-width: 1150px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+@media screen and (min-width: 1200px) {
+  .loginWrap {
+    width: 40%;
+  }
+}
+
+.Login {
   background-color: rgb(241, 241, 241);
   padding: 30px;
   border-radius: 10px;
-}
-@media screen and (min-width: 1200px) {
-  .Login {
-    width: 40%;
-  }
 }
 .Login h2 {
   text-align: center;
@@ -436,21 +439,24 @@ header > .inner .btn-wrap.lg-hidden button {
   font-size: 25px;
 }
 
-.SignUp {
+.SignUpWrap {
   width: 80%;
   max-width: 1150px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+@media screen and (min-width: 1200px) {
+  .SignUpWrap {
+    width: 40%;
+  }
+}
+
+.SignUp {
   background-color: rgb(241, 241, 241);
   padding: 30px;
   border-radius: 10px;
-}
-@media screen and (min-width: 1200px) {
-  .SignUp {
-    width: 40%;
-  }
 }
 .SignUp h2 {
   text-align: center;
@@ -477,6 +483,15 @@ header > .inner .btn-wrap.lg-hidden button {
   border-radius: 50px;
   padding: 10px;
   margin-top: 50px;
+}
+
+.else {
+  text-align: center;
+  margin-top: 30px;
+  color: gray;
+}
+.else a {
+  font-weight: 600;
 }
 
 .SearchModal {
@@ -515,6 +530,48 @@ header > .inner .btn-wrap.lg-hidden button {
 .SearchModal .searchResults {
   height: calc(100% - 80px);
   overflow-y: scroll;
+}
+.ToggleModal {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 0;
+}
+.ToggleModal .closeBtn {
+  font-size: 20px;
+}
+.ToggleModal .toggleRow .inner {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+}
+.ToggleModal .toggleRow.row1 {
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgb(228, 228, 228);
+  padding-bottom: 20px;
+}
+.ToggleModal .toggleRow.row1 .inner {
+  display: flex;
+  justify-content: flex-end;
+}
+.ToggleModal .toggleRow.row2 .inner {
+  justify-content: space-between;
+}
+.ToggleModal .user {
+  font-size: 16px;
+}
+.ToggleModal .user span {
+  font-weight: 700;
+  font-size: 18px;
+  margin-right: 5px;
+}
+.ToggleModal .logoutBtn {
+  background-color: rgb(228, 228, 228);
+  padding: 10px 30px;
+  border-radius: 30px;
+  font-size: 15px;
 }
 
 /*# sourceMappingURL=style.css.map */
