@@ -1,39 +1,46 @@
-.SearchModal {
-    background-color: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    .searchWrapper {
-        border-bottom: 1px solid $light-gray;
-        padding: 10px 0;
-        .inner {
-            width: 90%;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            .searchInput {
-                display: flex;
-                align-items: center;
-                width: 100%;
-                background-color: $light-gray;
-                padding: 10px;
-                border-radius: 5px;
-                input {
-                    flex-grow: 1;
-                }
-                .searchIcon {
-                    font-size: 23px;
-                }
-            }
-        }
+.ToggleModal {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 0;
+  .closeBtn {
+    font-size: 20px;
+  }
+  .toggleRow {
+    .inner {
+      display: flex;
+      width: 90%;
+      margin: 0 auto;
     }
-
-    .searchResults {
-        height: calc(100% - 80px);
-        overflow-y: scroll;
-        .MovieCard {}
+    &.row1 {
+      margin-bottom: 30px;
+      border-bottom: 1px solid $light-gray;
+      padding-bottom: 20px;
+      .inner {
+        display: flex;
+        justify-content: flex-end;
+      }
     }
+    &.row2 {
+      .inner {
+        justify-content: space-between;
+      }
+    }
+  }
+  .user {
+    font-size: 16px;
+    span {
+      font-weight: 700;
+      font-size: 18px;
+      margin-right: 5px;
+    }
+  }
+  .logoutBtn {
+    background-color: $light-gray;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: 15px;
+  }
 }
