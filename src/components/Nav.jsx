@@ -1,43 +1,37 @@
-import { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { IoSearch } from "react-icons/io5";
 import { MdMenu } from "react-icons/md";
-import {getAuth,signOut, onAuthStateChanged} from 'firebase/auth';
-import { useSelector, useDispatch } from 'react-redux';
-
-import { useAuth, handleLogout } from '../hooks/useAuth';
+import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
+import { useSelector, useDispatch } from "react-redux";
+// import { useAuth } from "../hooks/useAuth";
+// import { useAuth, handleLogout } from "../hooks/useAuth";
 
 import SearchModal from "./Modal/SearchModal";
 import ToggleModal from "./Modal/ToggleModal";
 
-function Nav() {  
-
+function Nav() {
   const navigate = useNavigate();
 
   //로그인 했는지?
-  const login = useSelector(state => state.login.isLoggedIn);
-  const userData = (useSelector(state => state.login.userData));
-  console.log(userData)
-  const dispatch = useDispatch();
-
+  const [userData, setUserData] = useState(null);
+  // const initailUserData = localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')) : {}
+  const auth = getAuth();
+  const [login, setLogin] = useState(false);
   const [loading, setLoading] = useState(true); // 로딩 상태 추가
 
-  useAuth();
-
-  // useEffect(() => {
-  //   onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       setLogin(true);
-  //       setUserData(JSON.parse(localStorage.getItem('userData')));
-  //     } else {
-  //       setLogin(false);
-  //     }
-  //     setLoading(false); // 로딩 완료
-  //   });
-
-  // }, [auth, navigate]);
-
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setLogin(true);
+        setUserData(JSON.parse(localStorage.getItem("userData")));
+      } else {
+        setLogin(false);
+      }
+      setLoading(false); // 로딩 완료
+    });
+  }, [auth, navigate]);
 
   // 검색 input 이벤트
   const [searchValue, setSearchValue] = useState("");
@@ -68,6 +62,17 @@ function Nav() {
   }, []);
 
   // 로그아웃
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        setUserData({});
+        setLogin(false);
+        localStorage.removeItem("userData");
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
   // const handleLogout = () => {
   //   signOut(auth)
   //   .then(()=>{
@@ -79,7 +84,6 @@ function Nav() {
   //     console.log('error',error)
   //   })
   // }
-
 
   //반응형 - 검색 모달
   const [searchModal, setSearchModal] = useState(false);
@@ -93,8 +97,8 @@ function Nav() {
   }, [location.pathname]);
 
   //반응형 - 토글 모달
+  const [toggleModal, setToggleModal] = useState(false);
   const [toggleModalShow, setToggleModalShow] = useState(false);
-
   return (
     <header className={` ${isScrolled ? "scrolled" : ""}`}>
       <div className="inner">
@@ -119,19 +123,24 @@ function Nav() {
             </button>
           </div>
         </div>
-     
-          <div className='btn-wrap lg-only'>
-            {login ? 
+        {loading ? null : (
+          <div className="btn-wrap lg-only">
+            {login ? (
               <>
                 {userData ? (
                   <>
                     <p className="user-name">
                       <span>{userData.displayName}</span> 님
                     </p>
-                    <button 
-                    className='logout'
-                    onClick={()=>{handleLogout(dispatch)}}
-                    >로그아웃</button>
+                    <button
+                      className="logout"
+                      onClick={handleLogout}
+                      // onClick={() => {
+                      //   handleLogout(dispatch);
+                      // }}
+                    >
+                      로그아웃
+                    </button>
                   </>
                 ) : null}
               </>
@@ -157,20 +166,37 @@ function Nav() {
               </>
             )}
           </div>
-        
+        )}
 
-        <div className='btn-wrap lg-hidden'>
-          <button className='toggle-menu lg-hidden'>
-            <IoSearch onClick={()=>{setSearchModal(true)}}/>
+        <div className="btn-wrap lg-hidden">
+          <button className="toggle-menu lg-hidden">
+            <IoSearch
+              onClick={() => {
+                setSearchModal(true);
+              }}
+            />
           </button>
-          <button className='toggle-menu lg-hidden'>
-            <MdMenu onClick={()=>{setToggleModalShow(true)}}/>
+          <button className="toggle-menu lg-hidden">
+            <MdMenu />
+          </button>
+          <button className="toggle-menu lg-hidden">
+            <MdMenu
+              onClick={() => {
+                setToggleModalShow(true);
+              }}
+            />
           </button>
         </div>
       </div>
-      
-      {searchModal ? <SearchModal setSearchModal={setSearchModal}/> : null}
-      <ToggleModal toggleModalShow={toggleModalShow} setToggleModalShow={setToggleModalShow}/>
+
+      {searchModal ? <SearchModal setSearchModal={setSearchModal} /> : null}
+      {toggleModal ? (
+        <ToggleModal
+          userName={userData.displayName}
+          setToggleModal={setToggleModal}
+          handleLogout={handleLogout}
+        />
+      ) : null}
     </header>
   );
 }
